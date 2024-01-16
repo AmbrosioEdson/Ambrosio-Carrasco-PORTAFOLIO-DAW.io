@@ -568,6 +568,49 @@ p {
 }
 
 
+.repo-link {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center; 
+    padding: 15px 30px;
+    border: 2px solid #0070f3;
+    border-radius: 6px;
+    color: #0070f3; 
+    text-decoration: none;
+    transition: all 0.3s ease;  
+  }
+  
+  .btn i {
+    margin-right: 10px;
+  }
+  
+  .btn:hover {
+    color: white;
+    background: #0070f3; 
+  }
+  
+  @media (max-width: 600px) {
+    .btn {  
+      display: block;
+      width: 100%; 
+    }  
+  }
+  
+  .github-btn {
+    background: #0070f3;
+    color: white;
+  }
+  
+  .github-btn:hover {
+    background: white; 
+    color: #0070f3;
+  }
+
 /* Para dispositivos Grandes (768px a más ) */
 @media (min-width:768px) {
 
@@ -591,7 +634,7 @@ p {
 
     }
     header.abajo {
-        background: #000;
+        background: black;
         padding: 15px 20px;
     }
     
