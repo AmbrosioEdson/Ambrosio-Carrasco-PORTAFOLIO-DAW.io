@@ -1,0 +1,804 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*======== Using Css Custom Variables =========*/
+body.dark {
+    --bg-color1: #0b0f19;
+    --bg-color2: #1c1e2a;
+    --color1: #FFF;
+    --color2: #DDD;
+}
+
+body:not(.dark) {
+    --bg-color1: #fbfdff;
+    --bg-color2: #f5f5f5;
+    --color1: #3e4455;
+    --color2: #000;
+}
+
+/*======= Universal CSS Properties =======*/
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
+    text-decoration: none;
+    outline: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--color1);
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--color1);
+    font-weight: 600;
+    text-align: center;
+}
+
+h4 {
+    font-size: 1.25rem;
+    color: var(--color1);
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    color: var(--color1);
+}
+
+p strong {
+    font-weight: 500;
+    color: var(--color2);
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h4,
+h6,
+h1 strong,
+h2 strong,
+h4 strong,
+h6 strong {
+    text-wrap: balance;
+}
+
+/* Wrapper */
+.portfolio-container {
+    max-width: 1070px;
+    margin: 0 auto;
+    padding: 0vh 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Barra de Navegación */
+header {
+    left: 0;
+    right: 0;
+    z-index: 20;
+    transition: .0s;
+    padding: 15px;
+    position: fixed;
+    background-color: var(--bg-color1);
+
+}
+
+header .portfolio-row.header-wrap {
+    justify-content: space-between;
+    
+}
+
+header.abajo {
+    background: #000;
+    padding: 15px 20px;
+}
+
+header.abajo .logo, header.abajo ul li a {
+    color: white;
+}
+
+.brand-name a {
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: #0b0f19;
+}
+
+.portfolio-navbar {
+    display: none;
+    font-size: 1.5rem;
+}
+
+.navbar-link a {
+    font-size: 2.25re;
+}
+
+.navbar-toggle i {
+    font-size: 2rem;
+    line-height: 20px;
+    cursor: pointer;
+    color: cyan;
+}
+
+/* Menu Responsivo */
+.portfolio-navbar.show {
+    display: block;
+    position: absolute;
+    background-color: rgb(236, 241, 256);
+    width: 100%;
+    left: 0;
+    top: 60px;
+    padding: 15px;
+    border-top: 5px solid #000;
+    text-align: center;
+}
+
+.portfolio-navbar ul li {
+    display: block;
+}
+
+.portfolio-navbar ul li a {
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 0.9rem;
+    line-height: 45px;
+}
+
+/* Sobre mi sección */
+#about {
+    padding-top: 100px;
+    background-color: var(--bg-color1);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    /* Asegura que los elementos se apilen verticalmente */
+    align-items: center;
+    /* Centrado horizontal */
+}
+
+.about-content {
+    /* align-items: center; */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* Centrado vertical */
+    justify-content: center;
+    /* Centrado horizontal */
+}
+
+.about-intro {
+    margin: 3rem 0;
+    width: 100%;
+    order: 2;
+    text-align: center;
+}
+
+.about-text h3 {
+    color: var(--color1);
+    margin-bottom: 10px;
+}
+.about-text h1 {
+    font-size: 2.5rem;
+    color: #000;
+}
+.about-text p {
+    font-size: 1.5rem;
+    color: #000;
+}
+
+/* Encabezado principal CSS */
+
+h1 strong,
+h2 strong {
+    background-image: linear-gradient(to right, #0000FF, #FF7F50 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+}
+
+/* Imagen de Perfil */
+.about-image {
+    width: 30%;
+    order: 1;
+    position: relative;
+    z-index: 2;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.about-image::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: linear-gradient(11deg, #FFFF00, #800080 100%);
+    z-index: -1;
+    transition: all .5s ease-in-out;
+    border-radius: 100% 73% 100% 72% / 99% 86% 75% 63%;
+    box-shadow: 2px 10px 0px 0px rgba(216, 19, 19, 0.16);
+}
+
+.about-image:hover {
+    transform: translateY(-10.5px);
+}
+
+/* Estilo para el resumen de mi */
+#resume {
+    padding: 60px 0;
+    background-color: var(--bg-color2);
+    z-index: 2;
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.resume-intro {
+    width: 100%;
+}
+
+.resume-text {
+    margin-top: 18px;
+
+}
+
+.resume-text p {
+    color: #000;
+}
+
+.hello-btn {
+    justify-content: center;
+}
+
+.hello-btn a {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 15px 45px;
+    color: #FFF;
+    background-color: #6366f1;
+    line-height: 30px;
+    transition: all 0.3s ease-out 0s;
+}
+
+.hello-btn a:hover {
+    background-color: #293b5f;
+}
+
+/* Cuerpo del resumen */
+.resume-body {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.resume-heading {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    position: relative;
+    padding: 0 10px;
+    background-color: #d5d5d5;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    line-height: 40px;
+    color: #000;
+    cursor: pointer;
+    border: 0;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 1rem;
+    transition: .4s;
+}
+
+.btn:not(:last-child) {
+    margin-right: 15px;
+}
+
+.btn:hover,
+.btn.active {
+    background-color: #4d63dd;
+    color: #FFF;
+}
+
+/* Pestañas de Resume */
+.resume-tab {
+    display: none;
+}
+
+.resume-tab.active {
+    display: block;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Contenido de calificación */
+.qualification-content {
+    position: relative;
+    padding: 1rem 2.1rem;
+}
+
+.qualification-content::after {
+    position: absolute;
+    content: "";
+    height: 7px;
+    width: 7px;
+    left: 8px;
+    top: 25px;
+    transform: rotate(45deg);
+    background: #e15747;
+}
+
+.qualification-content::before {
+    content: "";
+    height: 70%;
+    width: 3px;
+    left: 10px;
+    position: absolute;
+    background: #e8e8e8;
+}
+
+.qualification-content p {
+    color: #000;
+}
+
+/* Estilo para la barra de progreso de habilidades */
+.bar-content {
+    margin-bottom: 15px;
+}
+
+.bar-heading {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.bar-title,
+.bar-percentage {
+    color: var(--color1);
+    /* Asegúrate de que var(--color1) esté definido o reemplázalo con un color específico */
+}
+
+.bar-progress {
+    display: flex;
+    background-color: #e9eeef;
+    height: 8px;
+    border-radius: 5px;
+}
+
+.progress-bar {
+    width: 0;
+    display: flex;
+    position: relative;
+    transition-delay: 1.5s;
+    /* Solo un delay, el anterior es innecesario */
+    background-color: #75a9d6;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.resume-tab.active .progress-bar {
+    animation: progress 1500ms ease-in 1;
+}
+
+@keyframes progress {
+    from {
+        width: 0;
+    }
+}
+
+/* Estilos Semanas */
+#proyects {
+    padding-left: 0%;
+    background-color: var(--bg-color2);
+
+}
+
+.filter-wrap {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Semanas  */
+/* Estilo para la rejilla de semanas */
+.portfolio-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Estilo para cada columna de semana */
+.portfolio-col {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    width: calc(50% - 15px);
+    margin-bottom: 15px;
+}
+
+/* Estilo para la imagen de cada semana */
+.portfolio-item img {
+    border-radius: 5px 5px 0 0;
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Estilo para el contenido emergente de cada semana */
+.portfolio-item-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(16, 16, 16, 0.5);
+    transition: 0.5s;
+    transform: scale(1.15);
+    opacity: 0;
+}
+
+/* Estilo para el título de cada semana */
+.portfolio-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    text-align: center;
+    opacity: 0;
+    transition: 0.6s;
+}
+
+/* Efecto de transición al pasar el ratón sobre cada semana */
+.portfolio-col:hover .portfolio-item-content {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.portfolio-col:hover .portfolio-title {
+    bottom: 30%;
+    opacity: 1;
+}
+
+.portfolio-title h4,
+p {
+    color: #FFF;
+}
+
+/* Contacto */
+#contact {
+    background-color: var(--bg-color1);
+    padding: 60px 0;
+}
+
+.contact-general {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.contact-card {
+    text-align: center;
+}
+
+.contact-card .icon i {
+    font-size: 2.5rem;
+    color: var(--color1);
+}
+
+.contact-content {
+    margin-top: 20px;
+}
+
+.contact-content h5 {
+    font-size: 1rem;
+    color: var(--color1);
+    font-weight: 500;
+}
+
+.contact-content span {
+    color: var(--color1);
+}
+
+.centrado p {
+    color: #000;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+
+/* Para dispositivos Grandes (768px a más ) */
+@media (min-width:768px) {
+
+    /* Caracteristicas Universales */
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        text-align: unset;
+        color: var(--color1);
+        font-weight: 600;
+    }
+
+    /* Header responsive */
+    header {
+        background-color: transparent;
+        position: fixed;
+        padding: 0 15px;
+
+    }
+    header.abajo {
+        background: #000;
+        padding: 15px 20px;
+    }
+    
+    header.abajo .logo, header.abajo ul li a {
+        color: white;
+    }
+    .navbar-toggle i {
+        display: none;
+        justify-content: center;
+    }
+
+    .portfolio-navbar {
+        display: block;
+        margin: 2px;
+
+    }
+
+    .portfolio-navbar ul li {
+        display: inline-block;
+        padding: 0 10px;
+    }
+
+    .portfolio-navbar ul li a {
+        color: var(--color1);
+        line-height: 65px;
+    }
+
+    /* Sobre mi seccion responsive */
+    #about {
+        padding: 212px 0 212px 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    .about-intro {
+        width: 60%;
+        margin: 0;
+        order: 1;
+        text-align: unset;
+    }
+
+    /* Imagen perfil responsive */
+    .about-image {
+        width: 30%;
+        order: 2;
+    }
+
+    /* Intro Responsive */
+    .resume-intro {
+        width: 50%;
+        padding-right: 6.25rem;
+    }
+
+    /* cuerpo del resumen */
+    .resume-body {
+        width: 50%;
+        margin-top: 0;
+        min-height: 400px;
+    }
+
+    .resume-body h2 {
+        display: none;
+    }
+
+    .resume-heading {
+        padding: 20px 0;
+    }
+
+    .btn {
+        padding: 0 25px;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .qualification-content::after {
+        left: -2px;
+    }
+
+    .about-image::before {
+        left: 0;
+    }
+
+    .bar-content {
+        margin-bottom: 0;
+    }
+
+    /* Contact */
+    .contact-general {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contact-general h2 {
+        display: none;
+    }
+
+    .contact-card:nth-of-type(2) {
+        border-left: 1px solid #d9d9d9;
+        border-right: 1px solid #d9d9d9;
+    }
+
+    .centrado {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+    }
+
+    .reflexion p {
+        color: #000;
+        padding: 40%;
+    }
+
+    h1,
+    h2,
+    h4,
+    h6,
+    h1 strong,
+    h2 strong,
+    h4 strong,
+    h6 strong {
+        text-wrap: balance;
+    }
+
+
+    @media (min-width:768px) {
+        .portfolio-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* Cambiado para mostrar 2 semanas por fila */
+            gap: 15px;
+            margin: 0 auto;
+            max-width: 1070px;
+            justify-content: center;
+        }
+
+        .portfolio-col {
+            width: 100%;
+            /* O 50% si deseas dos semanas por fila */
+            flex-basis: 100%;
+            /* O 50% si deseas dos semanas por fila */
+            flex-grow: 1;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .portfolio-item img {
+            /* Ajusta los estilos de la imagen de cada semana en pantallas más grandes */
+            border-radius: 5px;
+            height: 350px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .resume-intro {
+            width: 50%;
+            padding-right: 6.25rem;
+            clear: both;
+            /* Añadido para evitar la superposición */
+        }
+
+        .centrado {
+            display: flex;
+            flex-direction: column;
+            align-items: center;         
+            height: 100vh;
+            text-align: center;
+
+        }
+
+    }
+}
+
+@media (max-width: 768px) {
+    .brand-name a {
+        font-size: 2rem;
+        padding-right: 20px;
+        /* Tamaño de fuente más pequeño para pantallas más pequeñas */
+    }
+    header.abajo
+    .portfolio-container h1,
+    p {
+        font-size: 1.5rem;
+    }
+
+    .resume h2,
+    p,
+    h2 strong {
+        font-size: 1.5rem;
+    }
+
+    .proyects h2,
+    h4,
+    p {
+        color: #000;
+        font-size: 1rem;
+    }
+
+    .centrado {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        height: 100vh;
+        text-align: center;
+    }
+
+}
